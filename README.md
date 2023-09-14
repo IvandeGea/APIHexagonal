@@ -1,2 +1,2 @@
 # APIHexagonal
-API to Do List, con typescript  una arquitectura hexagonal y testeado con Jest y ThunderClient
+API to Do List, con typescript. Aplicando una arquitectura hexagonal y tested con Jest y ThunderClient
