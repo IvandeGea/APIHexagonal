@@ -6,9 +6,11 @@ import {
   findAll,
   findById,
 } from "../application/controllers/taskController";
-
+import { basicAuth } from "./auth";
 
 const router = express.Router();
+
+router.use(basicAuth);
 
 router.post("/new", addTask);
 router.delete("/delete/:_id", deleteTask);

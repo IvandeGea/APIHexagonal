@@ -75,11 +75,9 @@ export const completeTask = async (
   }
 };
 
-export const findAll = async (req: Request, res: Response): Promise<void> => {
+export const findAll = async (req: Request, res: Response) => {
   try {
-    const allTasks = req.params._id;
-    var taskFinded = null;
-    taskFinded = await taskRepository.findAll();
+    const allTasks = await taskRepository.findAll();
 
     res.status(200).send({
       success: true,
@@ -88,21 +86,32 @@ export const findAll = async (req: Request, res: Response): Promise<void> => {
   } catch (error) {
     res.status(500).send({
       success: false,
-      error: "Error finding a task",
+      error: "Error showing all tasks",
     });
   }
 };
-export const findById = async (req: Request, res: Response): Promise<void> => {
+
+export const findById = async (req: Request, res: Response) => {
   try {
-    const taskFinded = await taskRepository.findById(req.params.id);
+    const taskId = req.params._id;
+    var taskFinded = null;
+    taskFinded = await taskRepository.findById(taskId);
+
     res.status(200).send({
       success: true,
       data: taskFinded,
     });
   } catch (error) {
-    res.status(500).send({
-      success: false,
-      error: "Error finding a task",
-    });
+    if (taskFinded === null) {
+      res.status(404).send({
+        success: false,
+        error: "Task doesn't exist",
+      });
+    } else {
+      res.status(500).send({
+        success: false,
+        error: "Error completing the task",
+      });
+    }
   }
 };

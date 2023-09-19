@@ -1,17 +1,15 @@
 {
   "compilerOptions": {
-    "target": "ES6",                           
+    "target": "ES6",
     "module": "commonjs",
-    "sourceMap": true,  
+    "sourceMap": true,
     "rootDir": "./",
     "outDir": "./dist",
     "strict": true,
     "esModuleInterop": true,
     "noEmitOnError": false,
     "removeComments": true,
+    "types": ["express", "send"]
   },
-  "include": [
-    "./src/**/*",
-    "./tests/**/*"
-  ]
+  "include": ["./src/**/*", "./tests/**/*"]
 }
