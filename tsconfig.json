@@ -9,7 +9,7 @@
     "esModuleInterop": true,
     "noEmitOnError": false,
     "removeComments": true,
-    "types": ["express", "send"]
+    "types": ["express", "send", "jest"]
   },
   "include": ["./src/**/*", "./tests/**/*"]
 }

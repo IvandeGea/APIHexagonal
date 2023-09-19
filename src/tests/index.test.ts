@@ -1,10 +1,18 @@
 import { createServer } from "../infraestructure/database/index";
 import app from "../config/app";
-
 import mongoose from "mongoose";
+import { Server } from "http";
+
+let server: Server | undefined;
 
 describe("infrastructure/database/connection/index", () => {
-  afterEach(async () => {
+  beforeAll(async () => {
+    server = await createServer();
+  });
+
+  afterAll(async () => {
+    await server?.close();
+
     jest.restoreAllMocks();
 
     await mongoose.disconnect();

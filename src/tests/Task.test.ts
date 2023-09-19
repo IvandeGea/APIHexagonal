@@ -1,4 +1,5 @@
 import Task from "../core/domain/entities/Task";
+import * as jest from "jest";
 
 describe("Task", () => {
   test("should create a new task", () => {
